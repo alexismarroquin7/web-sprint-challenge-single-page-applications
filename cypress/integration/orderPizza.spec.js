@@ -38,7 +38,7 @@ describe('Pizza', () => {
     })
 
     describe('Submit order', () => {
-        it.only('Can order', () => {
+        it('Can order', () => {
             pizzaButton().click();
             nameInput().type('Alexis Marroquin');
 
