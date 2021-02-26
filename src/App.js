@@ -6,6 +6,7 @@ import formSchema from "./validation/formSchema";
 import * as yup from 'yup';
 import axios from 'axios';
 import Order from './components/Order'
+import pizzaImg from './Assets/Pizza.jpg'
 
 const initialFormValues = {
   name: '',
@@ -77,6 +78,7 @@ const App = () => {
   return (
     <>
       <h1>Billy's Pizza Place</h1>
+      <img src={pizzaImg} alt="pizza image" style={{width:'1000px'}}/>
       <Switch>
         <Route path="/pizza">
         <Form 

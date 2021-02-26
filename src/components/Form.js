@@ -26,7 +26,12 @@ const Form = (props) => {
         <>
         <form onSubmit={handleSubmit}>
             <h2>Build the pizza you've been craving.</h2>
-            <div className="errors">
+            <div 
+                className="errors"
+                style={
+                    {color: 'red'}
+                }
+            >
                 <h2>{errors.name}</h2> 
                 <h2>{errors.size}</h2> 
             </div>
