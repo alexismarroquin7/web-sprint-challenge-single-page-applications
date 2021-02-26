@@ -6,7 +6,7 @@ const Home = () => {
         <>
         <section>
             <Link to="/pizza">
-                <button>Pizza?</button>
+                <button id="goToOrderForm">Pizza?</button>
             </Link>
         </section>
         </>
