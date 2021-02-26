@@ -15,6 +15,7 @@ const initialFormValues = {
   mushroom: false,
   ham: false,
   olives: false,
+  special: ''
 }
 
 const initialFormErrors = {
@@ -62,7 +63,8 @@ const App = () => {
     const newOrder = {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
-      toppings: ['pepperoni', 'mushroom', 'ham', ].filter(topping => formValues[topping])
+      toppings: ['pepperoni', 'mushroom', 'ham', ].filter(topping => formValues[topping]),
+      special: formValues.special.trim()
     }
     postNewOrder(newOrder)
   }

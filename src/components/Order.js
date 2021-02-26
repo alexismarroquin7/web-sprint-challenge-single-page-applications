@@ -20,6 +20,14 @@ const Order = ({details}) => {
                 {details.toppings.join(', ')}
               </div> 
             : <p>No Toppings Selected</p>}
+            {details.special 
+                ? <div>
+                    <p>Special Instruction:
+                    <span>{details.special}</span>
+                    </p>
+                </div>
+                : <div><p>No special instruction specified.</p></div>
+            }
         </div>
         </>
     )

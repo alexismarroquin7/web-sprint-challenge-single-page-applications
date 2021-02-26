@@ -13,7 +13,8 @@ const formSchema = yup.object().shape({
     pepperoni: yup.boolean(),
     mushroom: yup.boolean(),
     ham: yup.boolean(),
-    olives: yup.boolean()
+    olives: yup.boolean(),
+    special: yup.string()
 })
 
 export default formSchema;

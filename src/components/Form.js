@@ -92,6 +92,14 @@ const Form = (props) => {
                     onChange={handleChange}
                 />
             </label><br />
+            <label>Special Instruction:<br />
+            <input 
+                type="text"
+                name="special"
+                value={values.special}
+                onChange={handleChange}
+            />
+            </label><br />
             <label>*required</label><br />
             <button
                 type="submit"
