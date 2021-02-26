@@ -13,7 +13,7 @@ const Form = (props) => {
     const handleChange = e => {
         const {name, value, type, checked} = e.target;
         const valueToUse = type === 'checkbox' ? checked : value;
-        console.log(`Name: ${name}, value: ${valueToUse}`)
+        // console.log(`Name: ${name}, value: ${valueToUse}`)
         change(name, valueToUse);
     }
 

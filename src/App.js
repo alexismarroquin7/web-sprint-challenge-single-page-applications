@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Form from './components/Form'
 import formSchema from "./validation/formSchema";
 import * as yup from 'yup';
+import axios from 'axios';
 
 const initialFormValues = {
   name: '',
@@ -44,13 +45,29 @@ const App = () => {
     })
   }
 
+  const postNewOrder = newOrder => {
+    axios.post('https://reqres.in/api/users', newOrder)
+      .then(res => {
+        setOrders([...res.data, ...orders])
+
+        console.log(`res.data`)
+        console.log(res.data)
+        console.log(`orders`)
+        console.log(orders)
+      }) 
+      .catch(err => {
+        console.log(err)
+      })
+    setFormValues(initialFormValues)
+  }
+
   const formSubmit = () => {
     const newOrder = {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
       toppings: ['pepperoni', 'mushroom', 'ham', ].filter(topping => formValues[topping])
     }
-    console.log(newOrder)
+    postNewOrder(newOrder)
   }
 
   useEffect(() => {
