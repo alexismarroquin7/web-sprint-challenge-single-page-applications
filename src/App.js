@@ -5,6 +5,7 @@ import Form from './components/Form'
 import formSchema from "./validation/formSchema";
 import * as yup from 'yup';
 import axios from 'axios';
+import Order from './components/Order'
 
 const initialFormValues = {
   name: '',
@@ -48,12 +49,7 @@ const App = () => {
   const postNewOrder = newOrder => {
     axios.post('https://reqres.in/api/users', newOrder)
       .then(res => {
-        setOrders([...res.data, ...orders])
-
-        console.log(`res.data`)
-        console.log(res.data)
-        console.log(`orders`)
-        console.log(orders)
+        setOrders([res.data, ...orders])
       }) 
       .catch(err => {
         console.log(err)
@@ -69,6 +65,10 @@ const App = () => {
     }
     postNewOrder(newOrder)
   }
+
+  // useEffect(() => {
+  //   console.log(orders)
+  // }, [orders])
 
   useEffect(() => {
     formSchema.isValid(formValues).then(valid => setDisabled(!valid))
@@ -86,6 +86,13 @@ const App = () => {
           errors={formErrors}
           submit={formSubmit}
         />
+        {
+          orders && orders.map((order, idx) => {
+            return (
+              <Order key={idx} details={order}/>
+            )
+          })
+        }
         </Route>
         <Route path="/">
         <Home />
